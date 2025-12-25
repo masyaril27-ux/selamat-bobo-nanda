@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ucapan Tidur Malam dari Harom</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(to bottom, #ffe6e6, #f8e8d8); /* Pink lembut ke peach */
+            color: #5a4a42; /* Coklat lembut */
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #d4a574; /* Peach */
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        button {
+            background: #f4c2c2; /* Pink lembut */
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        button:hover {
+            background: #e8b5b5;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 1.2em;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .message.show {
+            opacity: 1;
+        }
+
+        .page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.8s ease, opacity 0.8s ease;
+        }
+
+        .page.hidden {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+
+        .page2 {
+            background: linear-gradient(to bottom, #2c2c54, #40407a); /* Efek malam */
+            color: white;
+        }
+
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .moon {
+            position: absolute;
+            top: 10%;
+            right: 10%;
+            width: 50px;
+            height: 50px;
+            background: #f5f5dc; /* Krem */
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(255,255,255,0.5);
+        }
+
+        .nailong {
+            width: 150px;
+            height: 150px;
+            margin: 20px auto;
+            animation: breathe 3s infinite ease-in-out;
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* SVG Nailong sederhana (naga tidur) */
+        .nailong svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5em;
+            }
+            button {
+                padding: 8px 16px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="page1" class="page container">
+        <div>
+            <h1>Nanda comel, seberapa sayang kamu ke Harom?</h1>
+            <div class="buttons">
+                <button id="sayang">Sayang</button>
+                <button id="sayang-banget">Sayang banget 💖</button>
+            </div>
+            <div id="message" class="message"></div>
+        </div>
+    </div>
+
+    <div id="page2" class="page page2 container hidden">
+        <div class="stars">
+            <!-- Bintang-bintang acak -->
+            <div class="star" style="top: 20%; left: 10%; width: 3px; height: 3px;"></div>
+            <div class="star" style="top: 30%; left: 50%; width: 4px; height: 4px;"></div>
+            <div class="star" style="top: 40%; left: 80%; width: 2px; height: 2px;"></div>
+            <div class="star" style="top: 60%; left: 20%; width: 3px; height: 3px;"></div>
+            <div class="star" style="top: 70%; left: 70%; width: 4px; height: 4px;"></div>
+        </div>
+        <div class="moon"></div>
+        <div class="nailong">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <!-- Naga kecil tidur: tubuh bulat, mata tertutup, ekor melingkar -->
+                <ellipse cx="50" cy="60" rx="25" ry="20" fill="#f4c2c2" stroke="#d4a574" stroke-width="2"/>
+                <ellipse cx="40" cy="50" rx="8" ry="10" fill="#f4c2c2" stroke="#d4a574" stroke-width="1"/>
+                <ellipse cx="60" cy="50" rx="8" ry="10" fill="#f4c2c2" stroke="#d4a574" stroke-width="1"/>
+                <circle cx="45" cy="48" r="2" fill="#5a4a42"/> <!-- Mata tertutup -->
+                <circle cx="55" cy="48" r="2" fill="#5a4a42"/>
+                <path d="M50 70 Q40 80 30 75 Q25 70 30 65" fill="#f4c2c2" stroke="#d4a574" stroke-width="2"/> <!-- Ekor -->
+                <rect x="45" y="65" width="10" height="5" fill="#f4c2c2" stroke="#d4a574" stroke-width="1"/> <!-- Bantal -->
+            </svg>
+        </div>
+        <h1>Selamat bobo, Nanda comel 🤍</h1>
+        <p>Tidurlah dengan tenang, mimpi indah ya.<br>Harom selalu ada di hatimu, meski dalam mimpi.</p>
+    </div>
+
+    <script>
+        const page1 = document.getElementById('page1');
+        const page2 = document.getElementById('page2');
+        const sayangBtn = document.getElementById('sayang');
+        const sayangBangetBtn = document.getElementById('sayang-banget');
+        const message = document.getElementById('message');
+
+        sayangBtn.addEventListener('click', () => {
+            message.textContent = "Hmm… Harom yakin masih bisa bikin kamu lebih sayang 🤍";
+            message.classList.add('show');
+        });
+
+        sayangBangetBtn.addEventListener('click', () => {
+            page1.classList.add('hidden');
+            setTimeout(() => {
+                page2.classList.remove('hidden');
+            }, 800);
+        });
+    </script>
+</body>
+</html>
